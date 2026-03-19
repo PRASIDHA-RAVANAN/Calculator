@@ -1,0 +1,173 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        background-image: url(calcu.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+    .Box{
+        
+        width: 300px;
+        height: 400px;
+        border: 5px;
+        border-style: groove;
+        border-color:lightblue
+        }
+    .input{
+        padding: 20px;
+        margin: 10px;
+        border-style: groove;
+        border-color: black;
+        border: 25px;
+    }
+    
+    .input input{
+        width: 240px;
+        height: 100px;
+        font-size: 30px;
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 20px;
+        padding: 5px;
+        margin: 10px;
+         }
+    /* .item{
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+} */
+
+.grid-containers{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 20px;
+        padding: 5px;
+        margin: 10px;
+         }
+.grid-container-s{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 20px;
+        padding: 5px;
+        margin: 10px;
+         }
+.grid-container-ss{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 20px;
+        padding: 5px;
+        margin: 10px;
+         }
+.grid-container-sss{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 20px;
+        padding: 5px;
+        margin: 10px;
+         }
+.grid-container button{
+    border-radius: 25px;
+    font-size: larger;
+
+}
+.grid-containers button{
+    border-radius: 25px;
+     font-size: larger;
+}
+.grid-container-s button{
+    border-radius: 25px;
+     font-size: larger;
+}
+.grid-container-ss button{
+    border-radius: 25px;
+     font-size: larger;
+}
+.grid-container-sss button{
+    border-radius: 25px;
+     font-size: larger;
+}
+    </style>
+</head>
+<body>
+    <div class="Box">
+        <div class="input">
+            <input type="text" id="display">
+        </div>
+        <div class="grid-container">
+            <button onclick="cleardisplay()">AC</button>
+            <button onclick="backspace()">⌫</button>
+            <button onclick="Sign()">+/-</button>
+            <button onclick="addValue('/')">÷</button>
+
+        </div>
+        <div class="grid-containers">
+            <button onclick="addValue('7')">7</button>
+            <button onclick="addValue('8')">8</button>
+            <button onclick="addValue('9')">9</button>
+            <button onclick="addValue('*')">x</button>
+
+        </div>
+        <div class="grid-container-s">
+            <button onclick="addValue('4')">4</button>
+            <button onclick="addValue('5')">5</button>
+            <button onclick="addValue('6')">6</button>
+            <button onclick="addValue('-')">-</button>
+        </div>
+        <div class="grid-container-ss">
+            <button onclick="addValue('1')">1</button>
+            <button onclick="addValue('2')">2</button>
+            <button onclick="addValue('3')">3</button>
+            <button onclick="addValue('+')">+</button>
+
+        </div>
+        <div class="grid-container-sss">
+            <button onclick="addValue('%')">%</button>
+            <button onclick="addValue('0')">0</button>
+            <button onclick="addValue('.')">.</button>
+            <button onclick="calculate()">=</button>
+
+        </div>
+    </div>
+    <script>
+        
+
+function cleardisplay(){
+document.getElementById("display").value="";
+}
+
+function backspace(){
+let current=document.getElementById("display").value;
+document.getElementById("display").value=current.slice(0,-1);
+}
+
+
+function addValue(val){
+    document.getElementById("display").value += val;
+}
+function Sign(){
+let display = document.getElementById("display");
+display.value = display.value * -1;
+}
+
+// function calculate(){
+//     let result = document.getElementById("display").value;
+//     document.getElementById("display").value = eval(result);
+// }
+function calculate(){
+    let result = document.getElementById("display").value;
+    let answer = eval(result);
+    document.getElementById("display").value = result + " = " + answer;
+}
+</script>
+    
+</body>
+</html> 
